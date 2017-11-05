@@ -159,20 +159,10 @@ public class Graph implements BaseGraph {
 				if (isFirstLine) {
 					//2.2.1 obtain the number of nodes in the graph 
 					isFirstLine = false;
-					vertexNum = Integer.parseInt(line.trim());
-					for (int i=0; i<vertexNum; ++i) {
-						BaseVertex vertex = new Vertex();
-						vertexList.add(vertex);
-						idVertexIndex.put(vertex.getId(), vertex);
-					}
+					setNumberOfVertices(Integer.parseInt(line.trim()));
 				} else {
 					//2.2.2 find a new edge and put it in the graph  
-					String[] strList = line.trim().split("\\s");
-					
-					int startVertexId = Integer.parseInt(strList[0]);
-					int endVertexId = Integer.parseInt(strList[1]);
-					double weight = Double.parseDouble(strList[2]);
-					addEdge(startVertexId, endVertexId, weight);
+					addEdgeFromStringWithEdgeNamesAndWeight(line);
 				}
 				//
 				line = bufRead.readLine();
@@ -185,6 +175,23 @@ public class Graph implements BaseGraph {
 		}
 	}
 
+	protected void addEdgeFromStringWithEdgeNamesAndWeight(String line) {
+		String[] strList = line.trim().split("\\s");
+		int startVertexId = Integer.parseInt(strList[0]);
+		int endVertexId = Integer.parseInt(strList[1]);
+		double weight = Double.parseDouble(strList[2]);
+		addEdge(startVertexId, endVertexId, weight);
+	}
+
+	protected void setNumberOfVertices(int numberOfVertices) {
+		vertexNum = numberOfVertices;
+		for (int i=0; i<vertexNum; ++i) {
+			BaseVertex vertex = new Vertex();
+			vertexList.add(vertex);
+			idVertexIndex.put(vertex.getId(), vertex);
+		}
+	}
+	
 	/**
 	 * Note that this may not be used externally, because some other members in the class
 	 * should be updated at the same time. 
