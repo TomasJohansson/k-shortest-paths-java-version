@@ -13,18 +13,18 @@ import edu.asu.emit.algorithm.graph.shortestpaths.YenTopKShortestPathsAlg;
 
 /**
  * @author Tomas Johansson
- * @see GraphPossibleToCreateProgramatically
+ * @see GraphPossibleToCreateProgrammatically
  */
-public class GraphPossibleToCreateProgramaticallyTest {
+public class GraphPossibleToCreateProgrammaticallyTest {
 
 	@Test
-	public void testGraphPossibleToCreateProgramatically() {
+	public void testGraphPossibleToCreateProgrammatically() {
 		// The method YenTopKShortestPathsAlgTest.testYenShortestPathsAlg4MultipleGraphs is using 
 		// the same test data as below but retrieving it from a file, and is not currently doing any assertions 
 		// but just printing the results to the output window. 		
 
 		// The below code is corresponding to the graph defined in file "data/test_6_2"
-		final GraphPossibleToCreateProgramatically graph = new GraphPossibleToCreateProgramatically(
+		final GraphPossibleToCreateProgrammatically graph = new GraphPossibleToCreateProgrammatically(
 			6, // the number of vertices 
 			Arrays.asList(
 				"0 1 1",

@@ -22,7 +22,7 @@ import java.util.List;
  * 
  * @author Tomas Johansson
  */
-public final class GraphPossibleToCreateProgramatically extends Graph {
+public final class GraphPossibleToCreateProgrammatically extends Graph {
 	
 	/**
 	 * There is a requirement for the input graph. 
@@ -34,7 +34,7 @@ public final class GraphPossibleToCreateProgramatically extends Graph {
 	 * @param linesWithEdgeNamesAndWeight a list of strings, and each such string must have three parts separated with a space, 
 	 * 		the id for the start and end vertex for the edge, and the weight for the edge 
 	 */
-	public GraphPossibleToCreateProgramatically(int numberOfVertices, List<String> linesWithEdgeNamesAndWeight) {
+	public GraphPossibleToCreateProgrammatically(int numberOfVertices, List<String> linesWithEdgeNamesAndWeight) {
 		clear();
 		setNumberOfVertices(numberOfVertices);
 		for (String line : linesWithEdgeNamesAndWeight) {
