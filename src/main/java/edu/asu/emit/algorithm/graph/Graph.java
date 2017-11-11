@@ -55,6 +55,11 @@ import edu.asu.emit.algorithm.utils.Pair;
  * The class defines a directed graph.
  * 
  * @author yqi
+ * 
+ * 
+ * @author Tomas Johansson, imlpemented a refactoring which extracted code from method 'importFromFile' to 
+ * two methods: 'setNumberOfVertices' and 'addEdgeFromStringWithEdgeNamesAndWeight'.
+ * Added to the fork https://github.com/TomasJohansson/k-shortest-paths-java-version    
  */
 public class Graph implements BaseGraph {
 	
@@ -175,6 +180,10 @@ public class Graph implements BaseGraph {
 		}
 	}
 
+	/**
+	* @author Tomas Johansson, added this method as a refactoring, by extracting code from method 'importFromFile' into this method. 
+	* Fork: https://github.com/TomasJohansson/k-shortest-paths-java-version
+	*/	
 	protected void addEdgeFromStringWithEdgeNamesAndWeight(String line) {
 		String[] strList = line.trim().split("\\s");
 		int startVertexId = Integer.parseInt(strList[0]);
@@ -183,6 +192,10 @@ public class Graph implements BaseGraph {
 		addEdge(startVertexId, endVertexId, weight);
 	}
 
+	/**
+	* @author Tomas Johansson, added this method as a refactoring, by extracting code from method 'importFromFile' into this method. 
+	* Fork: https://github.com/TomasJohansson/k-shortest-paths-java-version
+	*/	
 	protected void setNumberOfVertices(int numberOfVertices) {
 		vertexNum = numberOfVertices;
 		for (int i=0; i<vertexNum; ++i) {
