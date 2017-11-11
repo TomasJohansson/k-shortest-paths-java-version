@@ -20,8 +20,11 @@ public class GraphPossibleToCreateProgrammaticallyTest {
 	@Test
 	public void testGraphPossibleToCreateProgrammatically() {
 		// The method YenTopKShortestPathsAlgTest.testYenShortestPathsAlg4MultipleGraphs is using 
-		// the same test data as below but retrieving it from a file, and is not currently doing any assertions 
-		// but just printing the results to the output window. 		
+		// similar test data as below but retrieving it from a file, and it was not doing any assertions 
+		// but just printing the results to the output window.
+		// However, the weights have been modified a little bit to make sure that no total weights will be 
+		// the same, since equal values make the sort order less obvious when you use assertions.  
+		
 
 		// The below code is corresponding to the graph defined in file "data/test_6_2"
 		final GraphPossibleToCreateProgrammatically graph = new GraphPossibleToCreateProgrammatically(
@@ -33,8 +36,8 @@ public class GraphPossibleToCreateProgrammaticallyTest {
 				"4 0 0",
 				"4 1 0",
 				"4 3 0",
-				"1 5 0",
-				"3 5 0",
+				"1 5 0.2",
+				"3 5 0.1",
 				"2 5 0"
 			)
 		);
@@ -52,13 +55,13 @@ public class GraphPossibleToCreateProgrammaticallyTest {
 		//	Result # :7
 
 		// The assertions below are based on the output above
-		assertExpectedPath(yenAlg.next(), 0.0, 4,1,5);
-		assertExpectedPath(yenAlg.next(), 0.0, 4,3,5);
+		assertExpectedPath(yenAlg.next(), 0.1, 4,3,5);
+		assertExpectedPath(yenAlg.next(), 0.2, 4,1,5);		
 		assertExpectedPath(yenAlg.next(), 1.0, 4,1,2,5);
-		assertExpectedPath(yenAlg.next(), 1.0, 4,0,1,5);
-		assertExpectedPath(yenAlg.next(), 1.0, 4,1,3,5);
+		assertExpectedPath(yenAlg.next(), 1.1, 4,1,3,5);
+		assertExpectedPath(yenAlg.next(), 1.2, 4,0,1,5);		
 		assertExpectedPath(yenAlg.next(), 2.0, 4,0,1,2,5);
-		assertExpectedPath(yenAlg.next(), 2.0, 4,0,1,3,5);
+		assertExpectedPath(yenAlg.next(), 2.1, 4,0,1,3,5);
 		assertFalse(yenAlg.hasNext());
 	}
 
