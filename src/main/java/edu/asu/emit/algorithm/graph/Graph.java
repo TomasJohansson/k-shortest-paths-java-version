@@ -55,6 +55,11 @@ import edu.asu.emit.algorithm.utils.Pair;
  * The class defines a directed graph.
  * 
  * @author yqi
+ * 
+ * 
+ * @author Tomas Johansson, implemented (in a fork) a refactoring which extracted code from method 'importFromFile' to 
+ * two methods: 'setNumberOfVertices' and 'addEdgeFromStringWithEdgeNamesAndWeight'.
+ * For more information about what has changed in the forked version, see the file "NOTICE.txt".     
  */
 public class Graph implements BaseGraph {
 	
@@ -159,20 +164,10 @@ public class Graph implements BaseGraph {
 				if (isFirstLine) {
 					//2.2.1 obtain the number of nodes in the graph 
 					isFirstLine = false;
-					vertexNum = Integer.parseInt(line.trim());
-					for (int i=0; i<vertexNum; ++i) {
-						BaseVertex vertex = new Vertex();
-						vertexList.add(vertex);
-						idVertexIndex.put(vertex.getId(), vertex);
-					}
+					setNumberOfVertices(Integer.parseInt(line.trim()));
 				} else {
 					//2.2.2 find a new edge and put it in the graph  
-					String[] strList = line.trim().split("\\s");
-					
-					int startVertexId = Integer.parseInt(strList[0]);
-					int endVertexId = Integer.parseInt(strList[1]);
-					double weight = Double.parseDouble(strList[2]);
-					addEdge(startVertexId, endVertexId, weight);
+					addEdgeFromStringWithEdgeNamesAndWeight(line);
 				}
 				//
 				line = bufRead.readLine();
@@ -304,4 +299,30 @@ public class Graph implements BaseGraph {
 	public BaseVertex getVertex(int id) {
 		return idVertexIndex.get(id);
 	}
+	
+	
+	/**
+	* @author Tomas Johansson, added this method as a refactoring, by extracting code from method 'importFromFile' into this method. 
+	* Fork: https://github.com/TomasJohansson/k-shortest-paths-java-version
+	*/	
+	protected void addEdgeFromStringWithEdgeNamesAndWeight(String line) {
+		String[] strList = line.trim().split("\\s");
+		int startVertexId = Integer.parseInt(strList[0]);
+		int endVertexId = Integer.parseInt(strList[1]);
+		double weight = Double.parseDouble(strList[2]);
+		addEdge(startVertexId, endVertexId, weight);
+	}
+
+	/**
+	* @author Tomas Johansson, added this method as a refactoring, by extracting code from method 'importFromFile' into this method. 
+	* Fork: https://github.com/TomasJohansson/k-shortest-paths-java-version
+	*/	
+	protected void setNumberOfVertices(int numberOfVertices) {
+		vertexNum = numberOfVertices;
+		for (int i=0; i<vertexNum; ++i) {
+			BaseVertex vertex = new Vertex();
+			vertexList.add(vertex);
+			idVertexIndex.put(vertex.getId(), vertex);
+		}
+	}	
 }

@@ -1,0 +1,23 @@
+This project is a fork. The source code is located here:
+https://github.com/TomasJohansson/k-shortest-paths-java-version
+
+The location of the original project:
+https://github.com/yan-qi/k-shortest-paths-java-version/tree/master/src/main/java/edu/asu/emit/algorithm/graph
+
+
+The forked version has NOT modified the implementation of the algorithm.
+The purpose of the fork was to enable more flexible Graph creation, i.e. programmatic  
+construction of the Graph as an alternative to the construction from text file input.
+
+The PREVIOUSLY EXISTING java packages in the ORIGINAL project begin with the following name:
+edu.asu.emit.algorithm.graph  
+
+The NEW files (i.e. files ADDED in this fork) are located within the following java package:
+com.programmerare.edu.asu.emit.algorithm.graph
+
+In other words, the NEW package begin with the prefix "com.programmerare" and then the original base package name as suffix.
+
+The only of the PREVIOUSLY EXISTING  java files which has been MODIFIED if the class "Graph".
+It was refactored with extraction of code into two new methods in git commit 7130ed623d6e7436cdb8294c0e142a8b4b29a18d
+https://github.com/TomasJohansson/k-shortest-paths-java-version/commit/7130ed623d6e7436cdb8294c0e142a8b4b29a18d
+

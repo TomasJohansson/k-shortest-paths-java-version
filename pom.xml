@@ -1,11 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>edu.asu.emit.algorithm</groupId>
-	<artifactId>graph</artifactId>
-	<version>2.3.0</version>
-	<name>k-shortest-paths-java-version</name>
-	<description>An implementation of the k shortest paths algorithm in Java</description>
+	
+	<groupId>com.programmerare</groupId>
+	<artifactId>fork_of_edu-asu-emit-algorithm-graph</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+			
+	<name>k-shortest-paths-java-version (fork)</name>
+	<description>
+		An implementation of the k shortest paths algorithm in Java.
+		This is a forked version which has NOT modified the implementation of the algorithm.
+		The purpose of the fork was to enable more flexible Graph creation, i.e. programmatic  
+		construction of the Graph as an alternative to the construction from text file input.
+		The location of the original work: https://github.com/yan-qi/k-shortest-paths-java-version      	
+	</description>
+	<url>https://github.com/TomasJohansson/k-shortest-paths-java-version</url>	
 
 	<dependencies>
 		<dependency>
@@ -16,7 +25,26 @@
 		</dependency>
 	</dependencies>
 
+	<licenses>
+		<license>
+		<name>Apache License 2.0</name>
+		<distribution>repo</distribution>
+		<url>https://github.com/yan-qi/k-shortest-paths-java-version/blob/master/License.txt</url>
+		<comments>Note that the URL above is located at the repository for the original work. This fork is released under the same license.</comments>
+		</license>
+	</licenses>
+
 	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}</directory>			
+				<includes>
+					<include>License.txt</include>
+					<include>NOTICE.txt</include>
+				</includes>
+			</resource>	
+		</resources>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
