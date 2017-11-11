@@ -1,4 +1,4 @@
-package edu.asu.emit.algorithm.graph;
+package com.programmerare.edu.asu.emit.algorithm.graph;
 
 /**
  * The purpose of the class suffix "YanQi" is just to very clearly indicate (without having to look at the full name including the package name) 

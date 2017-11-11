@@ -1,4 +1,4 @@
-package edu.asu.emit.algorithm.graph;
+package com.programmerare.edu.asu.emit.algorithm.graph;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
+import edu.asu.emit.algorithm.graph.Graph;
+import edu.asu.emit.algorithm.graph.Path;
 import edu.asu.emit.algorithm.graph.abstraction.BaseVertex;
 import edu.asu.emit.algorithm.graph.shortestpaths.YenTopKShortestPathsAlg;
 

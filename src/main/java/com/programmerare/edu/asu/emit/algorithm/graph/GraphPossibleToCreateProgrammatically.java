@@ -1,6 +1,8 @@
-package edu.asu.emit.algorithm.graph;
+package com.programmerare.edu.asu.emit.algorithm.graph;
 
 import java.util.List;
+
+import edu.asu.emit.algorithm.graph.Graph;
 
 /**
  * The purpose of creating this class was to make it possible to create a Graph programmatically 
