@@ -3,6 +3,7 @@ package edu.asu.emit.algorithm.graph;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,21 +26,24 @@ public class GraphPossibleToCreateProgrammaticallyTest {
 		// However, the weights have been modified a little bit to make sure that no total weights will be 
 		// the same, since equal values make the sort order less obvious when you use assertions.  
 		
-
-		// The below code is corresponding to the graph defined in file "data/test_6_2"
+		// Each edge in the strings below are specified with three parts separated by a space as below:
+		// "startVertexId endVertexId weight"		
+		List<String> edgeData = Arrays.asList(
+			"0 1 1",
+			"1 3 1",
+			"1 2 1",
+			"4 0 0",
+			"4 1 0",
+			"4 3 0",
+			"1 5 0.2",
+			"3 5 0.1",
+			"2 5 0"
+		);
+		List<EdgeYanQi> edges = getEdges(edgeData);		
+		
 		final GraphPossibleToCreateProgrammatically graph = new GraphPossibleToCreateProgrammatically(
-			6, // the number of vertices 
-			Arrays.asList(
-				"0 1 1",
-				"1 3 1",
-				"1 2 1",
-				"4 0 0",
-				"4 1 0",
-				"4 3 0",
-				"1 5 0.2",
-				"3 5 0.1",
-				"2 5 0"
-			)
+			6, // the number of vertices
+			edges
 		);
 		
 		final YenTopKShortestPathsAlg yenAlg = new YenTopKShortestPathsAlg(graph, graph.getVertex(4), graph.getVertex(5));
@@ -74,4 +78,22 @@ public class GraphPossibleToCreateProgrammaticallyTest {
 	}
 
 	private final static double SMALL_DELTA_VALUE_FOR_DOUBLE_CMOPARISONS = 0.00000001;
+	
+	/** 
+	 * The string splitting code in this method are the same as in a method in class 'Graph'
+	 * but since I am not the owner of that project I do not want to make many refactorings  
+	 * that makes it deviate more from the original. Therefore the line splitting is duplicated here.     
+	 * @see Graph#addEdgeFromStringWithEdgeNamesAndWeight(String)
+	 */
+	private List<EdgeYanQi> getEdges(List<String> lines) {
+		List<EdgeYanQi> edges = new ArrayList<EdgeYanQi>(); 
+		for (String line : lines) {
+			String[] strList = line.trim().split("\\s");
+			int startVertexId = Integer.parseInt(strList[0]);
+			int endVertexId = Integer.parseInt(strList[1]);
+			double weight = Double.parseDouble(strList[2]);
+			edges.add(new EdgeYanQi(startVertexId, endVertexId, weight));
+		}
+		return edges;
+	}	
 }

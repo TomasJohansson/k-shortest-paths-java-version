@@ -17,13 +17,13 @@ import java.util.List;
  * The method 'clear' was already public so it could have been used without subclassing.
  * However, the method used in step 3 above is named 'addEdge' and is protected.
  * To be able to invoke it (without changing its access level to public) I created this subclass.
- * There were a few lines of code for each of step 2 and 3 above, and instead of copying those
- * rows into this subclass, I extracted those lines of code into two new protected method used below. 
+ * There were a few lines of code involved in step 2 above, and instead of copying those
+ * rows into this subclass, I extracted those lines of code into a new protected method 'setNumberOfVertices' used below. 
  * 
  * @author Tomas Johansson
  */
 public final class GraphPossibleToCreateProgrammatically extends Graph {
-	
+	 
 	/**
 	 * There is a requirement for the input graph. 
 	 * The ids of vertices must be consecutive.
@@ -34,11 +34,11 @@ public final class GraphPossibleToCreateProgrammatically extends Graph {
 	 * @param linesWithEdgeNamesAndWeight a list of strings, and each such string must have three parts separated with a space, 
 	 * 		the id for the start and end vertex for the edge, and the weight for the edge 
 	 */
-	public GraphPossibleToCreateProgrammatically(int numberOfVertices, List<String> linesWithEdgeNamesAndWeight) {
+	public GraphPossibleToCreateProgrammatically(final int numberOfVertices, final List<EdgeYanQi> edges) {
 		clear();
 		setNumberOfVertices(numberOfVertices);
-		for (String line : linesWithEdgeNamesAndWeight) {
-			addEdgeFromStringWithEdgeNamesAndWeight(line);
-		}
-	}
+		for (EdgeYanQi edge : edges) {
+			addEdge(edge.getStartVertexId(), edge.getEndVertexId(), edge.getWeight());
+		}		
+	}	
 }
