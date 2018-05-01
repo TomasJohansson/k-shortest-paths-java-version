@@ -10,12 +10,12 @@ The purpose of the fork was to enable more flexible Graph creation, i.e. program
 construction of the Graph as an alternative to the construction from text file input.
 
 The PREVIOUSLY EXISTING java packages in the ORIGINAL project begin with the following name:
-edu.asu.emit.algorithm.graph  
+edu.asu.emit.algorithm (edu.asu.emit.algorithm.graph and edu.asu.emit.algorithm.utils)
 
 The NEW files (i.e. files ADDED in this fork) are located within the following java package:
 com.programmerare.edu.asu.emit.algorithm.graph
 
-In other words, the NEW package begin with the prefix "com.programmerare" and then the original base package name as suffix.
+In other words, the NEW package begin with the prefix "com.programmerare" and then an original package name as suffix.
 
 The only of the PREVIOUSLY EXISTING  java files which has been MODIFIED if the class "Graph".
 It was refactored with extraction of code into two new methods in git commit 7130ed623d6e7436cdb8294c0e142a8b4b29a18d
