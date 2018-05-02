@@ -75,3 +75,5 @@ README.md.html
 graph.iml
 
 .idea/uiDesigner.xml
+
+*.bak
